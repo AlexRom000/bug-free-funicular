@@ -1,0 +1,22 @@
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="todoForm" (ngSubmit)="submit(todoForm)">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Name </mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="todoForm.controls.name.touched && todoForm.controls.name.invalid">
+          <span *ngIf="todoForm.controls.name.errors.required">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Description </mat-label>
+        <input matInput formControlName="description" required>
+        <mat-error *ngIf="todoForm.controls.description.touched && todoForm.controls.description.invalid">
+          <span *ngIf="todoForm.controls.description.errors.required">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+      <button *ngIf="!editedTodo" [disabled]="todoForm.invalid" mat-raised-button color="primary" type="submit">Create</button>
+      <button *ngIf="!!editedTodo" [disabled]="todoForm.invalid" mat-raised-button color="primary" type="submit">Edit</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="form-container">
+  <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Email </mat-label>
+      <input matInput formControlName="email" required>
+      <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+        <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+        <span *ngIf="loginForm.controls.email.errors.email">Please enter valid email</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Password </mat-label>
+      <input matInput formControlName="password" type="password" required>
+      <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+        <span *ngIf="loginForm.controls.password.errors.required">This field is mandatory.</span>
+        <span *ngIf="loginForm.controls.password.errors.minlength">minimum symbols is 5.</span>
+      </mat-error>
+    </mat-form-field>
+    <button [disabled]="loginForm.invalid" mat-raised-button color="primary" type="submit">Log in</button>
+  </form>
+</div>

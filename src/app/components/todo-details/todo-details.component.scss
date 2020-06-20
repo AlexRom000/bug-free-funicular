@@ -1,0 +1,39 @@
+.details {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 400px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form label input {
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.form label input:focus {
+  border: none;
+  outline: none;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 class="main-title">Todo manager</h1>
+
+  <div *ngIf="isToken()" class="logout-block">
+    <button mat-button (click)="logout()">Log out</button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

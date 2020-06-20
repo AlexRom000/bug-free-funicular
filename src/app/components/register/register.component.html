@@ -1,0 +1,21 @@
+<div class="form-container">
+  <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Email </mat-label>
+      <input matInput formControlName="email" required>
+      <mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+        <span *ngIf="registerForm.controls.email.errors.required">This field is mandatory.</span>
+        <span *ngIf="registerForm.controls.email.errors.email">Please enter valid email</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Password </mat-label>
+      <input matInput formControlName="password" type="password" required>
+      <mat-error *ngIf="registerForm.controls.password.touched && registerForm.controls.password.invalid">
+        <span *ngIf="registerForm.controls.password.errors.required">This field is mandatory.</span>
+        <span *ngIf="registerForm.controls.password.errors.minlength">minimum symbols is 5.</span>
+      </mat-error>
+    </mat-form-field>
+    <button [disabled]="registerForm.invalid" mat-raised-button color="primary" type="submit">Sign up</button>
+  </form>
+</div>
